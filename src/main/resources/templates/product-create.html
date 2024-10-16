@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/create-product.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <script th:src="@{/js/create-product.js}" defer></script>
+    <title>Product Creation</title>
+</head>
+<body>
+<div th:replace="company-sidebar :: company-sidebar"></div>
+<form id="form" enctype="multipart/form-data">
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="description">Description: </label>
+    <input type="text" name="description" id="description" required>
+
+    <label for="name">Price: </label>
+    <input type="number" min="10" step="1"  name="price" id="price"  required>
+
+    <label for="in-stock">In Stock</label>
+    <input type="number" id="in-stock" min="0" step="1" required>
+
+    <label for="category">Category: </label>
+    <select id="category" name="category" required>
+        <option value="" disabled selected>Select a category</option>
+        <option th:each="category : ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
+    </select>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required>
+
+    <div class="buttons">
+        <button type="submit" class="submit">Submit</button>
+        <button type="button" class= "cancel" onclick="window.location.href='/company/home'">Cancel</button>
+    </div>
+</form>
+</body>
+</html>

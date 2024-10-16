@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <script th:src="@{/js/remove-product.js}"></script>
+    <title>Cart Details</title>
+</head>
+<body >
+<div th:replace="sidebar :: sidebar"></div>
+<div class="container">
+    <div th:if="${hasProducts}" class="full">
+        <h1>Products added to cart</h1>
+        <ul class="list">
+            <li th:each="item : ${cart.products}">
+                <a th:href="@{/customer/products/{id}(id=${item.product.id})}" class="product-link">
+                    <img th:src="@{${item.product.image}}" alt="${product.name}" width="128px" height="128px">
+                    <div><b>Name: </b><span th:text="${item.product.name}"></span></div>
+                    <div><b>Price Per Product: </b><span th:text="${item.product.price}"></span></div>
+                    <div><b>Quantity: </b><span th:text="${item.quantity}"></span></div>
+                </a>
+                <button type="button"
+                        th:attr="onclick='removeFromCart(' + ${item.product.id} + ')'"
+                        th:id="button">Remove</button>
+            </li>
+        </ul>
+        <a href="/customer/orders/confirm" class="order-link">Order Now</a>
+    </div>
+    <div th:if="${!hasProducts}" class="empty">
+        <h1>You haven't added any product in your cart.</h1>
+    </div>
+</div>
+</body>
+</html>

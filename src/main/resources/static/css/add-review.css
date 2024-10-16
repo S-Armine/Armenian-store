@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    width: 100vh;
+    height: 100vh;
+    background-color: #808080FF;
+    background-size: cover;
+}
+
+.container {
+    margin-left: 200px;
+    display: flex;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.product span {
+    color: #ffffff;
+}
+
+.review label {
+    color: #ffffff;
+}
+
+.review select {
+    border-radius: 20px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    font-size: 15px;
+    color: #000000;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.submit {
+    background-color: #459EEBFF;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cancel {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}

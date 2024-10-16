@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(103, 99, 99);
+}
+
+.container {
+    display: flex;
+    margin:0;
+    padding: 0;
+    width: 60%;
+    height: 90vh;
+    background-color: #ffffff;
+    gap:0px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.item-1{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width:40%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.message {
+    color: #b12d2d;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    color:  rgb(69, 158, 235);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+
+}
+
+input, select {
+    border-radius: 30px;
+    height: 25px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 90%;
+    border: none;
+    border-radius: 40px;
+    background-color: rgb(69, 158, 235);
+    cursor: pointer;
+}
+
+.item-2{
+    flex: 1;
+    overflow: hidden;
+}
+
+.item-2 img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/signup.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+    <script th:src="@{/js/password-validation.js}" defer></script>
+    <title>Company Registration</title>
+</head>
+<body>
+    <div th:replace="navbar :: navbar"></div>
+    <div class="container">
+        <div class="item-1">
+            <p th:if="${message}" th:text="${message}" class="message"></p>
+            <form th:action="@{/registration/company}" method="POST" id="signup" class="company-signup" th:object="${company}">
+                <h2>Company Sign Up</h2>
+                <div class="input">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                    <input type="text" name="companyName" th:field="*{name}" placeholder="Company Name" required><br><br>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="email" th:field="*{email}" placeholder="Email" required><br><br>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="tel" th:field="*{phoneNumber}" placeholder="Phone Number" required><br><br>
+                    <i class="fa fa-bank" aria-hidden="true"></i>
+                    <input type="password" th:field="*{password}" placeholder="password" id="password" required><br><br>
+                    <button type="submit" id="company-submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="item-2">
+            <img src="/images/register-image.png">
+        </div>
+    </div>
+</body>
+</html>

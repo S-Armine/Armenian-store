@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/company-home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <script th:src="@{/js/delete-product.js}" defer></script>
+    <title th:text="${company.name}">Customer</title>
+</head>
+<body>
+<div th:replace="company-sidebar :: company-sidebar"></div>
+<div class="main-content">
+    <div class="header">
+        <div class="header-title">
+            <h2 th:text="${company.name}">Profile</h2>
+            <p th:text="${company.email}"></p>
+            <p th:text="${company.phoneNumber}"></p>
+        </div>
+        <img th:src="@{${company.logo}}" th:alt="${company.name}">
+    </div>
+
+    <div class="container">
+        <div class="container-header">
+            <a th:href="@{/company/products/add}">Add Product</a>
+        </div>
+        <div th:if ="${hasProducts}" class="full">
+            <h4>Products in store</h4>
+            <ul class="list">
+                <li th:each="product : ${company.products}">
+                    <img th:src="@{${product.image}}" alt="${product.name}" width="128px" height="128px">
+                    <div><b>Name: </b><span th:text="${product.name}"></span></div>
+                    <div><b>Description: </b><span th:text="${product.description}"></span></div>
+                    <div><b>Price: </b><span th:text="${product.price}"></span></div>
+                    <div><b>Rating: </b><span th:text="${product.rating}"></span></div>
+                    <div><b>In Stock: </b><span th:text="${product.inStock}"></span></div>
+                    <a th:href="'/company/products/' + ${product.id} + '/update'" class="button">Update</a>
+                    <button type="button" th:attr="onclick='deleteProduct(' + ${product.id} + ')'" class="button">Delete</button>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${!hasProducts}" class="empty">
+            <p>You didn't add products from your company.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

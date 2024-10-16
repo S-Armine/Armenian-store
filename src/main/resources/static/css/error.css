@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080FF;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0;
+}
+
+p {
+    font-size: 20px;
+}
+
+a {
+    color: #459EEBFF;;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

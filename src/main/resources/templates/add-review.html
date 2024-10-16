@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/add-review.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <title>Cart Details</title>
+</head>
+<body >
+    <div th:replace="sidebar :: sidebar"></div>
+    <div class="container">
+        <div class="product">
+            <img th:src="@{${product.image}}" alt="${product.name}" width="80px" height="80px">
+            <span th:text="${product.name}"></span>
+        </div>
+        <div class="review">
+            <form th:action="@{/customer/reviews/add?productID={id}(id=${product.id})}" th:object="${review}" th:method="post">
+                <input type="hidden" th:field="*{product}" value="product"/>
+                <label for = "rating">Rating: </label>
+
+                <select id="rating" th:field="*{rating}" required>
+                    <option value="" disabled selected>Select a number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></span>
+
+                <label for = "comment">Comment: </label>
+                <textarea id="comment" th:field="*{comment}" rows="5" cols="50" placeholder="Leave comment here" required></textarea>
+                <span th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></span>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Submit</button>
+                    <button type="button" class= "cancel" onclick="window.location.href='/products/{id}(id=${product.id})'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/order-table.css}"/>
+    <title>Order Items</title>
+</head>
+<body>
+<div th:replace="sidebar :: sidebar"></div>
+<div class="container">
+    <div class="content">
+        <table>
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Company Name</th>
+                <th>Company Phone Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderItem : ${orderItems}">
+                <td th:text="${order.id}">Order ID</td>
+                <td th:text="${orderItem.product.name}">Product Name</td>
+                <td th:text="${orderItem.price}">Price</td>
+                <td th:text="${orderItem.quantity}">Quantity</td>
+                <td th:text="${orderItem.product.company.name}">Company Name</td>
+                <td th:text="${orderItem.product.company.phoneNumber}">Company Phone Number</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

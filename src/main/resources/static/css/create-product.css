@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Optima, serif;
+}
+
+body {
+    display: flex;
+    background-color: #808080FF;
+    text-decoration: none;
+}
+
+#form {
+    margin-left: 300px;
+}
+
+#form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#form input[type="text"],
+#form input[type="number"],
+#form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Optima, serif;
+}
+
+body {
+    display: flex;
+    background-color: #808080FF;
+    text-decoration: none;
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    margin-left: 200px;
+    border-radius: 40px;
+}
+
+.header img{
+    width: 50px;
+    height: 50px;
+    border-radius: 80px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #bfbebe;
+}
+

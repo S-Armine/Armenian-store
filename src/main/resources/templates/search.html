@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" th:href="@{/css/search.css}"/>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <title>Search</title>
+</head>
+<body>
+    <div th:if="${isAuthenticated} && ${isCustomer}" th:replace="sidebar :: sidebar"></div>
+
+    <div class="search-container">
+        <form action="/customer/search" method="GET">
+            <label>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input class="search-box" type="text" placeholder="Search" name="query">
+            </label>
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div th:if="${query != null && query.trim() != ''}" class="results">
+            <h1>Results for: <span th:text="${query}"></span></h1>
+            <div th:if="${searchResults.size() > 0}">
+                <ul class="list">
+                    <li th:each="product : ${searchResults}">
+                        <a th:href="@{products/{id}(id=${product.id})}" class="product-link">
+                            <img th:src="${product.image}" alt="${product.name}" width="128px" height="128px">
+                            <div><b>Name: </b><span th:text="${product.name}"></span></div>
+                            <div><b>Description: </b><span th:text="${product.description}"></span></div>
+                            <div><b>Price: </b><span th:text="${product.price}"></span></div>
+                            <div><b>Rating: </b><span th:text="${product.rating}"></span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div th:if="${searchResults.size() == 0}">
+                <p>We don't have items adequate for your search.</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

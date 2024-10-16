@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script th:src="@{/js/add-product.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/product.css}"/>
+    <title>Product Details</title>
+</head>
+<body>
+<div th:replace="sidebar :: sidebar"></div>
+<div class="container">
+    <div class="product-container">
+        <img th:src="@{${product.image}}" alt="${product.name}" width="140px" height="140px">
+        <div class="details">
+            <div><b>Name: </b><span th:text="${product.name}"></span></div>
+            <div><b>Description: </b><span th:text="${product.description}"></span></div>
+            <div><b>Company: </b><span th:text="${product.company.name}"></span></div>
+            <div><b>Price: </b><span th:text="${product.price}"></span></div>
+            <div><b>Rating: </b><span th:text="${product.rating}"></span></div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" th:attr="onclick='addToCart(' + ${product.id} + ')'" class="button">Add to Cart</button>
+        <button type="button" th:attr="onclick='addToFavorites(' + ${product.id} + ')'" class="button">Add to Favorites</button>
+        <a th:href="@{/customer/reviews/add?productID={id}(id=${product.id})}" class="button">Leave Review</a>
+    </div>
+    <div th:if="hasReviews">
+        <div class="reviews">
+            <h1>Reviews</h1>
+            <ul class="list">
+                <li th:each="review : ${product.reviews}">
+                    <div class="review-detail"><b>Name: </b><span th:text="${review.customer.firstName} + ' ' + ${review.customer.lastName}"></span></div>
+                    <div class="review-detail"><b>Rating: </b><p th:text="${review.rating}"></p></div>
+                    <div class="review-detail"><b>Comment: </b><p th:text="${review.comment}"></p></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div th:if="!hasReviews" class="empty">
+        <p>There is no reviews made yet.</p>
+    </div>
+</div>
+</body>
+</html>

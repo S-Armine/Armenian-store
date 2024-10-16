@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/error.css}"/>
+    <title>Error Page</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Oops!</h1>
+        <p th:if="!${errorMessage}">Something went wrong.</p>
+        <p th:if="${errorMessage}" th:text="@{errorMessage}"></p><br>
+        <p>Go back to <a th:href="${home}">Home Page</a></p>
+    </div>
+</body>
+</html>

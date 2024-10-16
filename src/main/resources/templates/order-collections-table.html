@@ -1,0 +1,24 @@
+<div th:fragment="orderTable(list)" class="content">
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Customer</th>
+            <th>Items</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${list}">
+            <td th:text="${order.id}">Order ID</td>
+            <td th:text="${order.orderDate}">Order Date</td>
+            <td th:text="${order.totalAmount}">Total Amount</td>
+            <td th:text="${order.status}">Status</td>
+            <td th:text="${order.customer.firstName} + ' ' + ${order.customer.lastName}">Customer Name</td>
+            <td><a th:href="@{/customer/orders/{id}(id=${order.id})}">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

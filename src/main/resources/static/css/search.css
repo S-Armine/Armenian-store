@@ -1,0 +1,22 @@
+.search-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container label {
+    display: flex;
+    border-radius: 40px;
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+
+.search-container input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border-color: #ffffff;
+}
+
+.results h1{
+    color: #ffffff;
+}

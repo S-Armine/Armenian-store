@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/order-table.css}"/>
+    <script th:src="@{/js/mark-as-read.js}" defer></script>
+    <title>Notifications</title>
+</head>
+<body>
+<div th:replace="company-sidebar :: company-sidebar"></div>
+<div class="container">
+    <div th:if="${hasNotifications}" class="content">
+        <h2>Messages</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Message</th>
+                <th>Created At</th>
+                <th>Mark Read</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="notification : ${notifications}">
+                <td th:text="${notification.id}">ID</td>
+                <td th:text="${notification.message}">Message</td>
+                <td th:text="${notification.createdAt}">Created At</td>
+                <td>
+                    <button th:attr="onclick='markAsRead(' + ${notification.id} + ')'" class="button">Mark as Read</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${!hasNotifications}">
+        <h1>There is no unread notification</h1>
+    </div>
+</div>
+</body>
+</html>

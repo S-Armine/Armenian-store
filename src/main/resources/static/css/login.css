@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #808080FF;
+    background-size: cover;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 150px auto;
+    box-sizing: border-box;
+}
+
+.login h3, p{
+    margin-bottom: 10px;
+}
+
+.message {
+    color: #b12d2d;
+}
+
+.login .input input{
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 40px;
+}
+
+.login .role {
+    display: flex;
+}
+
+.role label{
+    display: flex;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.role input[type="radio"]:checked + label{
+    background-color: rgb(69, 158, 235);
+}
+
+.role input {
+    opacity: 0;
+}
+
+.login button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 90%;
+    border: none;
+    border-radius: 40px;
+    background-color: rgb(69, 158, 235);
+    cursor: pointer;
+}
+
+.login .signup {
+    margin-top: 10px;
+    font-size: .9em;
+    color: #fff;
+}
+
+.signup p a {
+    color: #fff;
+}
+
+.signup p a:hover {
+    text-decoration: underline;
+}

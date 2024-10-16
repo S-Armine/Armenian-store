@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vh;
+    height: 100vh;
+    background-color: #808080FF;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 200px;
+}
+
+.content {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #dddddd;
+}
+
+table th, .order table td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+.container h2 {
+    color: #ffffff;
+}
+
+.address-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.address-info h2 {
+    color: #ffffff;
+}
+
+.address-info input {
+    border-color: #ffffff;
+    border-radius: 20px;
+    height: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.submit {
+    background-color: #459EEBFF;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cancel {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #459EEBFF;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}

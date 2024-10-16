@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/flag-icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script th:src="@{/js/login.js}" defer></script>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+    <title>Login</title>
+</head>
+<body>
+<div th:replace="navbar :: navbar"></div>
+<div class="login">
+    <h3>Hello dear entrepreneur. Please log in to your page.</h3>
+    <p th:if="${message}" th:text="${message}" class="message"></p>
+    <form class="company-login-form">
+        <div class="input">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input type="email" id="email" name="email" placeholder="email" required><br>
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </div>
+        <button type="submit">Sign In</button>
+    </form>
+    <div class="signup">
+        <p>Don't have an account? <a href="/registration/company">Sign up here</a>.</p>
+    </div>
+</div>
+</body>
+</html>
