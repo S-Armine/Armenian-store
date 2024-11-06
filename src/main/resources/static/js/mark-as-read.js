@@ -1,5 +1,4 @@
 function markAsRead(notificationID) {
-    alert("here")
     const response = fetch('/company/notifications/mark/' + notificationID, {
         method: 'PUT'
     })

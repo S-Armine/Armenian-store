@@ -33,6 +33,31 @@ body {
 }
 
 .buttons {
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.submit {
+    background-color: #459EEBFF;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cancel {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
